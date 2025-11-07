@@ -1,6 +1,6 @@
-rm(list = ls()) # Clear environment
-gc()            # Clear memory
-cat("\f")       # Clear console
+rm(list = ls())  # Clear environment
+gc()             # Clear memory
+cat("\f")        # Clear console
 
 library(tidyverse)
 
