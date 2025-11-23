@@ -1,6 +1,6 @@
 # Group #3 - Checkpoint 2
 
-![](images/Baseball_1.jpg)
+![](images/Baseball_3.jpg)
 
 ## 1. Introduction
 
@@ -249,5 +249,6 @@ On-Base Percentage (OBP), Slugging Percentage (SLG), Isolated power, Batting avg
 7) The recorded video will show results with narration.
 
 8) The final report will be displayed in the README.md file on the repo landing page.
+
 
 ---
