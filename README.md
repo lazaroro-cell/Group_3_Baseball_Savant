@@ -194,15 +194,6 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 
 ---
 
-## Current Steps for Checkpoint 2
-
-1. Complete KPI calculations in Python and update tables.  
-2. Generate initial visualizations and save them in `output/`.  
-3. Update README.md with insights from analysis.  
-4. Commit and push updates to `Group_3_Checkpoint_2.0` branch regularly.  
-5. Ongoing amendment of the final report (README.md).
-
-
 ## Team Collaboration Notes
 
 Challenges:
@@ -231,6 +222,14 @@ Victories:
 
 ## The next section will be deleted from our final report.
 
+## Current Steps for Checkpoint 2
+
+1. Complete KPI calculations in Python and update tables.  
+2. Generate initial visualizations and save them in `output/`.  
+3. Update README.md with insights from analysis.  
+4. Commit and push updates to `Group_3_Checkpoint_2.0` branch regularly.  
+5. Ongoing amendment of the final report (README.md).
+
 ## Progress on the 8 Major Tasks
 
 1) We selected Option 1 — Baseball Savant MLB performance indicators.  
@@ -252,4 +251,5 @@ On-Base Percentage (OBP), Slugging Percentage (SLG), Isolated power, Batting avg
 
 
 ---
+
 
