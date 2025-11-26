@@ -21,21 +21,61 @@ Our team explores **MLB batting performance indicators** using data from Basebal
 ---
 
 ## 2. Data Summary
-Primary Datasets:
+
+**Primary Datasets:**
 
 - MLB team stats 2021-2025.csv
 
 - MLB player stats 2021-2025.csv
 
-Columns / Metrics:
+**Data Metrics Glossary:**
 
-- Players: player info, plate appearances (PA), batting stats, KPIs (OBP, SLG, OPS, ISO, BABIP, RBI, xBA, xSLG, exit velocity, etc.)
+&nbsp;&nbsp;**1) Player-level Metrics**
 
-- Teams: Win%, SLG, OBP, RBI, ISO, OPS
+| Abbreviation         | Full Name / Description                                                                 |
+|---------------------|----------------------------------------------------------------------------------------|
+| last_name            | Player’s last name                                                                     |
+| first_name           | Player’s first name                                                                    |
+| player_id            | MLB’s unique ID for the player, used for data merging                                   |
+| year                 | Season year the stats come from                                                         |
+| player_age           | Player’s age during that season                                                         |
+| pa                   | Plate appearances                                                                       |
+| hit                  | Total hits recorded                                                                     |
+| k_percent            | Percentage of plate appearances that end in a strikeout                                 |
+| bb_percent           | Percentage of plate appearances that end in a walk                                      |
+| batting_avg          | Batting average: how often the player gets a hit per at-bat                              |
+| slg_percent          | Slugging percentage: measures hitting power by counting total bases per at-bat          |
+| on_base_percent      | How often the player reaches base by any method (hit, walk, hit-by-pitch)             |
+| on_base_plus_slg     | OPS: combined measure of getting on base (OBP) and hitting for power (SLG)            |
+| isolated_power       | ISO: measures pure power by counting only extra-base hits                               |
+| babip                | Batting average on balls in play: how often a ball put in play becomes a hit (excl. HR & strikeouts) |
+| b_rbi                | Expected/adjusted RBI metric based on quality of contact                                 |
+| xba                  | Expected batting average based on batted-ball quality                                   |
+| xslg                 | Expected slugging percentage based on batted-ball quality                               |
+| woba                 | Weighted on-base average: advanced metric measuring total offensive value using run-values for each event |
+| xwoba                | Expected wOBA based on contact quality                                                 |
+| xobp                 | Expected on-base percentage                                                             |
+| xiso                 | Expected ISO (expected power output)                                                   |
+| wobacon              | wOBA on contact only (ignores strikeouts and walks)                                     |
+| xwobacon             | Expected wOBA on contact based on batted-ball data                                      |
+| exit_velocity_avg    | Average exit velocity (mph) of all balls the player hits 
 
-Data characteristics: Mixed continuous metrics, percentages, and categorical identifiers (player, year).
+&nbsp;&nbsp;**2) Team-level Metrics:**
 
-Summary statistics:
+| Abbreviation | Full Name / Description                                     |
+|-------------|--------------------------------------------------------------|
+| Win%        | Team winning percentage over the season                     |
+| SLG         | Slugging percentage: measures hitting power by total bases  |
+| OBP         | On-base percentage: how often the team reaches base        |
+| RBI         | Runs batted in: total runs produced by the team             |
+| ISO         | Isolated power: extra-base hitting ability                  |
+| OPS         | On-base plus slugging: combined measure of offensive value |
+
+**Data characteristics:**
+
+- Mixed continuous metrics, percentages, and categorical identifiers (player, year).
+
+**Summary statistics:**
 
 - Highlight top 10 performers in each dataset.
 - Player/team projected performance.
@@ -196,12 +236,12 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 
 ## Team Collaboration Notes
 
-Challenges:
+**Challenges:**
 
 - Learning Git workflow and branch management
 - Collaborating in code writing
 
-Victories:
+**Victories:**
 
 - Created a common repo
 - Created project outline
