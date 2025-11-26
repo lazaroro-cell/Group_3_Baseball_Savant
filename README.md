@@ -1,6 +1,6 @@
 # Group #3 - Checkpoint 2
 
-![](images/Baseball_1.jpg)
+![](images/Baseball_3.jpg)
 
 ## 1. Introduction
 
@@ -147,7 +147,7 @@ Our analysis combined historical MLB player- and team-level statistics with regr
 - OPS and ISO consistently emerge as the strongest indicators of future offensive performance at both the team and player levels. Teams and players maintaining strong OPS trends also show positive projections in Win%, RBI, and SLG.
 
 - Exit Velocity has moderate correlation with power metrics (ISO ≈ 0.65, SLG ≈ 0.62), but does not strongly correlate with most KPIs.
-→ This means EV is useful, but not a primary predictor in your dataset.
+→ This means EV is useful, but not a primary predictor in our dataset.
 
 **Team Projections (2026–2028):**
 
@@ -250,4 +250,6 @@ On-Base Percentage (OBP), Slugging Percentage (SLG), Isolated power, Batting avg
 
 8) The final report will be displayed in the README.md file on the repo landing page.
 
+
 ---
+
