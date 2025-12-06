@@ -252,10 +252,10 @@ These plots show relationships between exit velocity and player hitting stats, a
 ![EV vs ISO](output/ev%20vs%20iso.png)  
 
 **Players Metrics Heatmap**  
-![Players Metrics Heatmap](output/correlation_heatmap_players.png){width=600px}
+![Players Metrics Heatmap](output/correlation_heatmap_players.png)
 
 **Team Rankings Heatmap (2021–2025 averages):**  
-![Team Rankings Heatmap](output/heatmap_team_rankings.png){width=900px}
+![Team Rankings Heatmap](output/heatmap_team_rankings.png)
 
 ## 4. Conclusion
 
