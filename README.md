@@ -1,22 +1,42 @@
-# Group #3 - Checkpoint 2
+# MLB Offensive Performance Analysis (2021–2028)
 
 ![](images/Baseball_3.jpg)
 
+## Executive Summary
+
+This report analyzes MLB offensive performance indicators from 2021–2025 and projects team and player level trends through 2028. Using data from **Baseball Savant**, we identified key metrics — OPS, ISO, OBP, SLG, and exit velocity — that strongly influence offensive success. The report targets new MLB managers entering the field.
+
+Data-driven insights help prioritize acquisitions, lineup decisions, and development focus for immediate and long-term impact.
+
+- **Players:** Top performers show consistent OPS and ISO trends; exit velocity correlates moderately with power metrics. Projections highlight potential breakout players and those likely to sustain high performance.
+
+- **Teams:** Linear regression projections of Win%, SLG, OBP, RBI, ISO, and OPS suggest which teams may improve or decline over the next three seasons, helping anticipate competitive dynamics.
+
+**Recommendations:**
+
+- Focus on players with consistently high OPS and ISO to strengthen your lineup.
+
+- Monitor emerging talents who show upward trends in exit velocity and isolated power.
+
+- At the team level, invest in strategies that improve OBP and SLG to maximize run production.
+
+---
+
 ## 1. Introduction
 
-Our team explores **MLB batting performance indicators** using data from Baseball Savant.  
+Our team analyzes **MLB batting performance indicators** using data from Baseball Savant covering the period from 2021–2025. This analysis focuses on metrics that are predictive of team and player success, such as: EV, OPS, ISO, OBP, and SLG.
 
-**Decision-maker / Context:**
+**Decision-maker:**
 
-- Baseball analysts and coaches interested in understanding player performance and team-level KPIs.
+- This report is designed for a young MLB manager entering the field, who needs actionable insights to make decisions on lineups, player acquisitions, and offensive strategy.
 
 **Research Question:**
 
-- Which batting metrics are most predictive of overall offensive value, and how does player/team performance over time indicate future success?  
+- Which batting metrics and team-level KPIs are most predictive of future offensive performance, and how can these insights guide managerial decisions for the next three seasons (2026–2028)?
 
 **Impact:**
 
-- Insights could guide player evaluation, team decisions, and strategy planning.
+- By understanding trends and projections, the new MLB manager can identify key performers, prioritize acquisitions, optimize lineups, and plan for sustainable team success.
 
 ---
 
@@ -28,12 +48,17 @@ Our team explores **MLB batting performance indicators** using data from Basebal
 
 - MLB player stats 2021-2025.csv
 
+**Data characteristics:**
+
+- Mixed continuous metrics, percentages, and categorical identifiers (player name, year, team).
+- Source: Baseball Savant official website (https://baseballsavant.mlb.com/)
+
 **Data Metrics Glossary:**
 
 &nbsp;&nbsp;**1) Player-level Metrics**
 
 | Abbreviation         | Full Name / Description                                                                 |
-|---------------------|----------------------------------------------------------------------------------------|
+|:---------------------|:----------------------------------------------------------------------------------------|
 | last_name            | Player’s last name                                                                     |
 | first_name           | Player’s first name                                                                    |
 | player_id            | MLB’s unique ID for the player, used for data merging                                   |
@@ -63,7 +88,7 @@ Our team explores **MLB batting performance indicators** using data from Basebal
 &nbsp;&nbsp;**2) Team-level Metrics**
 
 | Abbreviation | Full Name / Description                                     |
-|-------------|--------------------------------------------------------------|
+|:-------------|:--------------------------------------------------------------|
 | Win%        | Team winning percentage over the season                     |
 | SLG         | Slugging percentage: measures hitting power by total bases  |
 | OBP         | On-base percentage: how often the team reaches base        |
@@ -71,15 +96,69 @@ Our team explores **MLB batting performance indicators** using data from Basebal
 | ISO         | Isolated power: extra-base hitting ability                  |
 | OPS         | On-base plus slugging: combined measure of offensive value |
 
-**Data characteristics:**
+**Data Overview:**
 
-- Mixed continuous metrics, percentages, and categorical identifiers (player, year).
+- Top performers in 2025 show consistent OPS and ISO trends.
+
+- Exit velocity correlates moderately with slugging metrics.
+
+- Team-level projections show potential growth in offensive output for certain teams (expected Win% increase for top 10 teams).
 
 **Summary statistics:**
 
-- Highlight top 10 performers in each dataset.
-- Player/team projected performance.
-- Most predictive metric of overall offensive value.
+- Based on the full dataset of all players / teams and used 5th–95th percentile trimmed data to avoid extreme outliers and produce realistic projections.
+
+&nbsp;&nbsp;**1) Player-level stats**: Calculated for the main KPIs (Exit Velocity, SLG, Batting Average, OBP, RBI, ISO, and OPS).
+
+-  **Historical stats 2021 – 2025** 
+
+| Statistic | Exit Velocity (mph) | SLG | Batting Average | OBP | RBI | ISO | OPS |
+|:-----------|:-------------------:|:-----:|:----------------:|:-----:|:-----:|:-----:|:-----:|
+| Mean      | 89.70             | 0.44| 0.26           | 0.33| 74.76| 0.18| 0.77|
+| Median    | 89.70             | 0.44| 0.26           | 0.33| 73.00| 0.18| 0.77|
+| StdDev    | 2.16              | 0.06| 0.03           | 0.03| 19.63| 0.05| 0.08|
+| Variance  | 4.65              | 0.00| 0.00           | 0.00| 385.49|0.00| 0.01|
+| Min       | 82.30             | 0.27| 0.18           | 0.24| 23.00| 0.05| 0.56|
+| Max       | 96.20             | 0.70| 0.35           | 0.46| 144.00|0.38| 1.16|
+| Range     | 13.90             | 0.43| 0.17           | 0.23| 121.00|0.33| 0.60|
+
+- **Projected stats 2026 – 2028**
+
+| Statistic | Exit Velocity (mph) | SLG | Batting Average | OBP | RBI | ISO | OPS |
+|:-----------|:-------------------:|:-----:|:----------------:|:-----:|:-----:|:-----:|:-----:|
+| Mean      | 89.37             | 0.41| 0.25           | 0.32| 67.74| 0.16| 0.73|
+| Median    | 89.32             | 0.41| 0.25           | 0.32| 65.80| 0.16| 0.73|
+| StdDev    | 2.42              | 0.08| 0.03           | 0.04| 22.65| 0.06| 0.10|
+| Variance  | 5.84              | 0.01| 0.00           | 0.00| 513.13|0.00| 0.01|
+| Min       | 84.14             | 0.20| 0.17           | 0.21| 16.86| 0.02| 0.43|
+| Max       | 94.87             | 0.57| 0.32           | 0.40| 123.62|0.30| 0.96|
+| Range     | 10.73             | 0.37| 0.15           | 0.19| 106.76|0.28| 0.53|
+
+&nbsp;&nbsp;**2) Team-level stats**: Calculated for the main KPIs (Win%, SLG, OBP, RBI, ISO, OPS).
+
+-  **Historical stats 2021 – 2025**
+
+| Statistic | Win Percentage | SLG | OBP | RBI | ISO | OPS |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Mean | 0.50 | 0.40 | 0.32 | 686.65 | 0.15 | 0.72 |
+| Median | 0.50 | 0.39 | 0.32 | 683.00 | 0.15 | 0.72 |
+| StdDev | 0.05 | 0.02 | 0.01 | 32.90 | 0.01 | 0.02 |
+| Variance | 0.00 | 0.00 | 0.00 | 1082.32 | 0.00 | 0.00 |
+| Min | 0.42 | 0.37 | 0.30 | 630.00 | 0.14 | 0.69 |
+| Max | 0.57 | 0.44 | 0.33 | 746.00 | 0.19 | 0.76 |
+| Range | 0.16 | 0.06 | 0.03 | 116.00 | 0.05 | 0.07 |
+
+- **Projected stats 2026 – 2028**
+
+|Statistic | Win Percentage | SLG | OBP | RBI | ISO | OPS |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Mean | 0.50 | 0.40 | 0.32 | 686.91 | 0.15 | 0.72 |
+| Median | 0.50 | 0.39 | 0.32 | 682.99 | 0.15 | 0.72 |
+| StdDev | 0.05 | 0.02 | 0.01 | 34.74 | 0.01 | 0.02 |
+| Variance | 0.00 | 0.00 | 0.00 | 1206.55 | 0.00 | 0.00 |
+| Min | 0.39 | 0.37 | 0.30 | 626.25 | 0.13 | 0.68 |
+| Max | 0.58 | 0.44 | 0.33 | 771.31 | 0.19 | 0.77 |
+| Range | 0.19 | 0.07 | 0.03 | 145.07 | 0.06 | 0.09 |
 
 ---
 
@@ -172,22 +251,21 @@ These plots show relationships between exit velocity and player hitting stats, a
 **EV vs ISO:**  
 ![EV vs ISO](output/ev%20vs%20iso.png)  
 
-**EV Correlation Heatmap vs Hitting Stats:**  
-![EV Correlation Heatmap](output/ev%20correlation%20heatmap%20vs%20hitting%20stats.png)  
+**Players Metrics Heatmap**  
+![Players Metrics Heatmap](output/correlation_heatmap_players.png){width=600px}
 
 **Team Rankings Heatmap (2021–2025 averages):**  
-![Team Rankings Heatmap](output/MLB%20Team%20Rankings%20Heatmap%20(2021-2025)%20averages.png)
+![Team Rankings Heatmap](output/heatmap_team_rankings.png){width=900px}
 
 ## 4. Conclusion
 
-Our analysis combined historical MLB player- and team-level statistics with regression-based projections to estimate future offensive performance for 2026–2028. By examining KPIs such as SLG, OBP, OPS, ISO, RBI, Batting Average, and Exit Velocity, we generated insights into which metrics are most indicative of future success.
+Our analysis combined historical MLB player and team level statistics with regression-based projections to estimate future offensive performance for 2026–2028. By examining KPIs such as SLG, OBP, OPS, ISO, RBI, Batting Average, and Exit Velocity, we generated insights into which metrics are most indicative of future success.
 
 **Key Findings:**
 
 - OPS and ISO consistently emerge as the strongest indicators of future offensive performance at both the team and player levels. Teams and players maintaining strong OPS trends also show positive projections in Win%, RBI, and SLG.
 
-- Exit Velocity has moderate correlation with power metrics (ISO ≈ 0.65, SLG ≈ 0.62), but does not strongly correlate with most KPIs.
-→ This means EV is useful, but not a primary predictor in our dataset.
+- Exit Velocity has moderate correlation with power metrics (ISO ≈ 0.65, SLG ≈ 0.62), but does not strongly correlate with most KPIs. This means EV is useful, but not a primary predictor in our dataset.
 
 **Team Projections (2026–2028):**
 
@@ -199,7 +277,7 @@ Our analysis combined historical MLB player- and team-level statistics with regr
 
 **Heatmaps and Scatter Plots:**
 
-- Correlation heatmaps confirm how hitting metrics relate to each other, supporting the regression choices used in projections.
+- Visualizations confirm metric relationships and validate the linear regression models used for projections.
 Scatter plots visually confirm the moderate relationships between EV and power statistics.
 
 **Limitations:**
@@ -207,6 +285,8 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 - The model only uses batting statistics; defensive and situational factors are not included.
 
 - Projections are based on linear regression, which may not capture sudden changes (injuries, role changes, coaching changes, etc.).
+
+- Extreme outliers were trimmed (5th–95th percentile) to stabilize results.
 
 **Future Work:**
 
@@ -218,7 +298,7 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 
 **Hypothetical Decision:**
 
-- Prioritize player acquisitions, contracts, and lineup planning based on projected offensive output.
+- Prioritize player acquisitions, lineup optimization, trade evaluation, and contract negotiations based on projected offensive outputs.
 
 **Data-driven Recommendation:**
 
@@ -230,7 +310,7 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 
 **Risks:**
 
-- Ignores defensive contributions and external factors; requires continuous monitoring of updated metrics.
+- The recommendations ignore defensive and baserunning contributions and external variables such as player health or mid-season trades. Continuous monitoring and model updates are essential.
 
 ---
 
@@ -246,8 +326,9 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 - Created a common repo
 - Created project outline
 - Assigned roles
-- Learning GitHub Desktop workflow (branch management, pushing/pulling)
+- Learnt GitHub Desktop workflow (branch management, Commit / push /pull)
 - Agreed on main indicators & KPIs to analyze
+- Agreed on key findings and recommendations
 
 ---
 
@@ -259,38 +340,3 @@ Scatter plots visually confirm the moderate relationships between EV and power s
 | Jacob D Lamothe | Code Editor/Checker + Video Editor + Presentation/Narration Lead | Checks code for mistakes/redundancies + statistical validation + Edits video at the end of project |
 | Rodolfo Lazaro | Visualization Designer | Tableau plots + checking visualizations |
 | Samir Soliman | Head Developer | Import data + write codes + statistical Validation/Model Evaluation + findings and write-up |
-
-## The next section will be deleted from our final report.
-
-## Current Steps for Checkpoint 2
-
-1. Complete KPI calculations in Python and update tables.  
-2. Generate initial visualizations and save them in `output/`.  
-3. Update README.md with insights from analysis.  
-4. Commit and push updates to `Group_3_Checkpoint_2.0` branch regularly.  
-5. Ongoing amendment of the final report (README.md).
-
-## Progress on the 8 Major Tasks
-
-1) We selected Option 1 — Baseball Savant MLB performance indicators.  
-
-2) Repository created.Team are collaborating on GitHub (Commit → Pull → Push workflow is currently used)
-
-3) Data downloaded from baseballsavant.mlb.com
-
-4) Python & Tableau are currently used for analysis and visualizations: Scatter Plots for relationships between variables, Line Plots to show performance trends over years, Boxplots to visualize distributions of key metrics & Histograms for frequency distributions of variables.
-
-5) The team is working on KPIs and forecast:
-On-Base Percentage (OBP), Slugging Percentage (SLG), Isolated power, Batting avg. & Exit Velocity
-
-6) This README.md is Checkpoint 2 deliverable.
-
-7) The recorded video will show results with narration.
-
-8) The final report will be displayed in the README.md file on the repo landing page.
-
-
----
-
-
-
